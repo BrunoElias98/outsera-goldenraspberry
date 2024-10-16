@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@Mocks/*": ["./src/@mocks/*"],
+      "@Types/*": ["./src/@types/*"],
+      "@Components/*": ["./src/components/*"],
+      "@Pages/*": ["./src/pages/*"],
+      "@Assets/*": ["./src/core/assets/*"],
+      "@Constants/*": ["./src/core/constants/*"],
+      "@Helpers/*": ["./src/core/helpers/*"],
+      "@Utils/*": ["./src/core/utils/*"],
+      "@Services/*": ["./src/core/services/*"],
+      "@Hooks/*": ["./src/hooks/*"],
+      "@Stores/*": ["./src/core/store/*"],
+      "@Tests/*": ["./src/tests/*"],
+      "@Routes/*": ["./src/routes/*"],
+      "@Contexts/*": ["./src/context/*"],
+      "@lib/*": ["src/lib/*"]
+    },
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
