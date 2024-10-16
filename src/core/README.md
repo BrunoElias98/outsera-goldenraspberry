@@ -4,10 +4,8 @@ Pasta responsável por guardar arquivos de apoio para o projeto, como utilitári
 
 ## Padrões de desenvolvimento.
 
-- `Assetes`: deve conter imagens, ícones, temas de estilo, entre outros arquivos estáticos.
+- `Assets`: deve conter imagens, ícones, temas de estilo, entre outros arquivos estáticos.
 
-- `Constants`: deve conter todos os valores constantes para serem reutilizados dentro do projeto junto dos enums.
+- `Hooks`: deve conter lógicas de utilitarios para controle de views, bem como controle de state para algumas telas
 
-- `Helpers`: deve conter funções utilitárias para manipulação de dados e funções comuns para diversos arquivos.
-
-- `Utils`: deve conter funções utilitárias para manipulação de dados e operações comuns, visando modularidade e reutilização
+- `Services`: deve conter as funcoes e chamadas para as API's, bem como configuracoes da mesma.
