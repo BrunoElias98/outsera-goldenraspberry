@@ -31,3 +31,6 @@ Thumbs.db
 .pnp.cjs
 .pnp.data.json
 .pnpm-store/
+
+# Vite
+.vite/

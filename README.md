@@ -1,4 +1,4 @@
-# Nome do Projeto
+# Golden Raspberry Awards
 
 Projeto referente ao Golden Raspberry Awards (Piores filmes do ano)
 
