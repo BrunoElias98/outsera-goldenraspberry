@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 
 import TableComponent from "@Components/ui/Table";
 import { Input } from "@Components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@Components/ui/Button";
 
 import { fetchMoviesByYear } from "@Services/movies";
 

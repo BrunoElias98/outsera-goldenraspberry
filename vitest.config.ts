@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
@@ -17,14 +17,11 @@ export default defineConfig({
       "@Utils": path.resolve(__dirname, "./src/core/utils"),
       "@Services": path.resolve(__dirname, "./src/core/services"),
       "@Hooks": path.resolve(__dirname, "./src/hooks"),
-      "@Stores": path.resolve(__dirname, "./src/core/store"), // Verifique isso
+      "@Stores": path.resolve(__dirname, "./src/core/store"),
       "@Tests": path.resolve(__dirname, "./src/tests"),
       "@Routes": path.resolve(__dirname, "./src/routes"),
       "@Contexts": path.resolve(__dirname, "./src/context"),
+      "@lib": path.resolve(__dirname, "./src/lib"),
     },
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
   },
 });

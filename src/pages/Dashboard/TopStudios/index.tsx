@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { fetchTopStudios } from "@Services/movies";
 import TableComponent from "@Components/ui/Table";
 

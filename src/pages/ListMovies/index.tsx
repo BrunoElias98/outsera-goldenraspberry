@@ -13,7 +13,7 @@ import {
 
 import { useMovies } from "@/core/hooks/useMovies";
 
-import { useMainLayout } from "@/pages/Main";
+import { useMainLayout } from "@Pages/Main";
 
 type Movie = {
   year: number;

@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaHome, FaVideo } from "react-icons/fa";
-import { SidebarItem } from "@/components/ui/Sidebar/SidebarItem";
+
+import { SidebarItem } from "@Components/ui/Sidebar/SidebarItem";
 
 interface MainLink {
   label: string;

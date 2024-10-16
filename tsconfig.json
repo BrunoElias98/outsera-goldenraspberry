@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "types": ["vitest", "node"],
     "paths": {
       "@/*": ["./src/*"],
       "@Mocks/*": ["./src/@mocks/*"],

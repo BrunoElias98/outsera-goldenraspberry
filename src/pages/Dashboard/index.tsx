@@ -2,10 +2,10 @@ import { useEffect } from "react";
 
 import { useMainLayout } from "@Pages/Main";
 
-import MultipleWinnvers from "./MultipleWinners";
-import ListMoviesByYear from "./ListMoviesByYear";
-import Producers from "./Producers";
-import TopStudios from "./TopStudios";
+import MultipleWinnvers from "@Pages/Dashboard/MultipleWinners";
+import ListMoviesByYear from "@Pages/Dashboard/ListMoviesByYear";
+import Producers from "@Pages/Dashboard/Producers";
+import TopStudios from "@Pages/Dashboard/TopStudios";
 
 const DashboardPage: React.FC = () => {
   const { setModuleName } = useMainLayout();

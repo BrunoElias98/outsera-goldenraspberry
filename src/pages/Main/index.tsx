@@ -1,7 +1,7 @@
 import React, { createContext, useContext, ReactNode } from "react";
 
-import { Sidebar } from "@/components/ui/Sidebar";
-import Header from "@/components/ui/Header";
+import { Sidebar } from "@Components/ui/Sidebar";
+import Header from "@Components/ui/Header";
 
 interface MainLayoutContextProps {
   moduleName: string;
@@ -41,16 +41,12 @@ export const MainLayoutProvider: React.FC<MainLayoutProviderProps> = ({
   return (
     <MainLayoutContext.Provider value={{ moduleName, setModuleName }}>
       <div className="flex min-h-screen overflow-hidden">
-        {/* Sidebar com visibilidade controlada */}
         <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
 
         <div className="flex flex-col flex-1 bg-gray-100">
-          {/* Header com controle de visibilidade da sidebar */}
           <Header moduleName={moduleName} onToggleSidebar={toggleSidebar} />
 
-          <div className="flex-1 overflow-auto p-6">
-            {children}
-          </div>
+          <div className="flex-1 overflow-auto p-6">{children}</div>
         </div>
       </div>
     </MainLayoutContext.Provider>

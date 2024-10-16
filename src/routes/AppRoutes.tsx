@@ -1,10 +1,10 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { MainLayoutProvider } from "@/pages/Main";
+import { MainLayoutProvider } from "@Pages/Main";
 
-const DashboardPage = lazy(() => import("@/pages/Dashboard"));
-const ListMoviesPage = lazy(() => import("@/pages/ListMovies"));
+const DashboardPage = lazy(() => import("@Pages/Dashboard"));
+const ListMoviesPage = lazy(() => import("@Pages/ListMovies"));
 
 const AppRoutes = () => (
   <Router>

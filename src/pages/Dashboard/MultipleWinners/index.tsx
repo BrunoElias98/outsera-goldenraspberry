@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { fetchMultipleWinners } from "@Services/movies";
+
 import TableComponent from "@Components/ui/Table";
+
+import { fetchMultipleWinners } from "@Services/movies";
 
 type MultipleWinner = {
   year: number;
