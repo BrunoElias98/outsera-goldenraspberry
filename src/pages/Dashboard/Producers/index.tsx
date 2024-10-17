@@ -25,6 +25,7 @@ const Producers: React.FC = () => {
     const getProducersData = async () => {
       try {
         const data = await fetchProducers();
+
         setProducersData(data);
       } catch (error) {
         console.error(

@@ -12,8 +12,8 @@ export const fetchMovies = async (
     });
 
     return {
-      movies: response.data._embedded.movies,
-      totalPages: response.data.page.totalPages,
+      movies: response.data.content,
+      totalPages: response.data.totalPages,
     };
   } catch (error) {
     console.error("Erro ao buscar a lista de filmes:", error);
@@ -24,7 +24,7 @@ export const fetchMovies = async (
 export const fetchMultipleWinners = async () => {
   try {
     const response = await api.get(
-      "/api/movies?projection=years-with-multiple-winners"
+      "/movies?projection=years-with-multiple-winners"
     );
     return response.data.years;
   } catch (error) {
@@ -36,7 +36,7 @@ export const fetchMultipleWinners = async () => {
 export const fetchTopStudios = async () => {
   try {
     const response = await api.get(
-      "/api/movies?projection=studios-with-win-count"
+      "/movies?projection=studios-with-win-count"
     );
     return response.data.studios;
   } catch (error) {
@@ -48,7 +48,7 @@ export const fetchTopStudios = async () => {
 export const fetchProducers = async () => {
   try {
     const response = await api.get(
-      "/api/movies?projection=max-min-win-interval-for-producers"
+      "/movies?projection=max-min-win-interval-for-producers"
     );
 
     const { min, max } = response.data;
@@ -78,7 +78,7 @@ export const fetchProducers = async () => {
 
 export const fetchMoviesByYear = async (year: number) => {
   try {
-    const response = await api.get("/api/movies", {
+    const response = await api.get("/movies", {
       params: {
         winner: true,
         year,

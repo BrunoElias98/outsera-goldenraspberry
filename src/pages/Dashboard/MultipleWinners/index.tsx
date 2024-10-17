@@ -16,6 +16,7 @@ const MultipleWinners: React.FC = () => {
     const getMultipleWinners = async () => {
       try {
         const data = await fetchMultipleWinners();
+
         setMultipleWinners(data);
       } catch (error) {
         console.error("Erro ao carregar anos com múltiplos vencedores:", error);

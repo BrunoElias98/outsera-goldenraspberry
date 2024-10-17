@@ -27,6 +27,7 @@ const ListMoviesByYear: React.FC = () => {
     setLoading(true);
     try {
       const data = await fetchMoviesByYear(Number(year));
+
       setMovies(data);
     } catch (error) {
       console.error("Erro ao buscar filmes:", error);

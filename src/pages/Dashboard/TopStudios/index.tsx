@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import { fetchTopStudios } from "@Services/movies";
 import TableComponent from "@Components/ui/Table";
+
+import { fetchTopStudios } from "@Services/movies";
 
 type TopStudio = {
   name: string;
@@ -15,6 +16,7 @@ const TopStudios: React.FC = () => {
     const getTopStudios = async () => {
       try {
         const data = await fetchTopStudios();
+
         setTopStudios(data);
       } catch (error) {
         console.error("Erro ao carregar estúdios com mais vitórias:", error);

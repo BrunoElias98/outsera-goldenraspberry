@@ -26,3 +26,7 @@ Projeto referente ao Golden Raspberry Awards (Piores filmes do ano)
 - cd outsera-goldenraspberry
 - pnpm install
 - pnpm dev
+
+3. Entre no diretório do projeto
+
+- pnpm test

@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class', 'class'], // Para ativar o suporte a temas escuro/claro
+  darkMode: ['class', 'class'],
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#027570', // Cor principal definida como #027570
-          dark: '#014d48', // Cor para modo escuro
+          DEFAULT: '#027570',
+          dark: '#014d48',
           foreground: '#ffffff'
         },
         background: 'hsl(var(--background))',

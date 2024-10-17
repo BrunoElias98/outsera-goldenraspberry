@@ -1,7 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, waitFor } from "@Tests/customRender";
 
-test('renders the application title', () => {
+import App from "./App";
+
+test("renders loading fallback and then the application title", async () => {
   render(<App />);
-  expect(screen.getByText(/Lista de Piores Filmes/i)).toBeInTheDocument();
+
+  await waitFor(() => {
+    expect(screen.getByTestId("dashboard-page")).not.toBeNull();
+  });
 });

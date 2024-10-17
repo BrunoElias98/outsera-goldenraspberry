@@ -56,6 +56,7 @@ const ListMoviesPage: React.FC = () => {
           <Input
             type="text"
             placeholder="Filter By Year"
+            data-testid="year-filter"
             className="mt-1"
             {...register("yearFilter")}
           />
@@ -85,9 +86,10 @@ const ListMoviesPage: React.FC = () => {
             value={winnerFilter}
             onValueChange={(value) => setValue("winnerFilter", value)}
           >
-            <SelectTrigger className="mt-1 w-full">
-              <SelectValue placeholder="Yes/No" />
-            </SelectTrigger>
+            <SelectTrigger
+              className="mt-1 w-full"
+              data-testid="winner-filter"
+            />
             <SelectContent>
               <SelectItem value="default">Yes/No</SelectItem>
               <SelectItem value="true">Yes</SelectItem>
@@ -133,7 +135,7 @@ const ListMoviesPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-4 bg-white rounded shadow-md">
+    <div className="p-4 bg-white rounded shadow-md" data-testid="movies-page">
       <h3 className="text-lg font-semibold mb-4">List of Worst Movies</h3>
       <TableComponent
         columns={columns}

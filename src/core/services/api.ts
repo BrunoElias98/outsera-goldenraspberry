@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://tools.outsera.com/backend-java",
+  baseURL: "https://tools.outsera.com/backend-java/api",
 });
 
 api.interceptors.request.use((config) => {
