@@ -27,7 +27,7 @@ describe("ListMoviesPage", () => {
 
     render(<ListMoviesPage />);
 
-    const titleElement = await screen.findByText(/List of Worst Movies/i);
+    const titleElement = await screen.findByText("List of Worst Movies");
     expect(titleElement).not.toBeNull();
 
     await waitFor(() => {
@@ -53,7 +53,7 @@ describe("ListMoviesPage", () => {
     const yearInput = screen.getByTestId("year-filter");
     fireEvent.change(yearInput, { target: { value: "1991" } });
 
-    const titleElement = await screen.findByText(/List of Worst Movies/i);
+    const titleElement = await screen.findByText("List of Worst Movies");
     expect(titleElement).not.toBeNull();
 
     await waitFor(() => {
@@ -79,7 +79,7 @@ describe("ListMoviesPage", () => {
     const yearInput = screen.getByTestId("year-filter");
     fireEvent.change(yearInput, { target: { value: "1990" } });
 
-    const titleElement = await screen.findByText(/List of Worst Movies/i);
+    const titleElement = await screen.findByText("List of Worst Movies");
     expect(titleElement).not.toBeNull();
 
     await waitFor(() => {

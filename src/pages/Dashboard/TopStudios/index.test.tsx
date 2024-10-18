@@ -23,7 +23,7 @@ describe("TopStudios Component", () => {
 
     render(<TopStudios />);
 
-    const title = screen.getByText(/Top 3 studios with winners/i);
+    const title = screen.getByText("Top 3 studios with winners");
     expect(title).not.to.be.null;
 
     expect(screen.getByText("Studio")).not.to.be.null;
