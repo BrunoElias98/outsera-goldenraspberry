@@ -27,6 +27,6 @@ Projeto referente ao Golden Raspberry Awards (Piores filmes do ano)
 - pnpm install
 - pnpm dev
 
-3. Entre no diretório do projeto
+3. Para rodar os testes
 
 - pnpm test
