@@ -6,15 +6,7 @@ import { Input } from "@Components/ui/Input";
 import { Button } from "@Components/ui/Button";
 
 import { fetchMoviesByYear } from "@Services/movies";
-
-type Movie = {
-  id: number;
-  year: number;
-  title: string;
-  studios: string[];
-  producers: string[];
-  winner: boolean;
-};
+import { Movie } from "@/@types/movies";
 
 const ListMoviesByYear: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);

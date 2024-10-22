@@ -4,20 +4,17 @@ import TableComponent from "@Components/ui/Table";
 
 import { fetchTopStudios } from "@Services/movies";
 
-type TopStudio = {
-  name: string;
-  winCount: number;
-};
+import { TopStudios } from "@/@types/movies";
 
-const TopStudios: React.FC = () => {
-  const [topStudios, setTopStudios] = useState<TopStudio[]>([]);
+const TopStudiosComponent: React.FC = () => {
+  const [topStudios, setTopStudios] = useState<TopStudios[]>([]);
 
   useEffect(() => {
     const getTopStudios = async () => {
       try {
         const data = await fetchTopStudios();
 
-        setTopStudios(data);
+        setTopStudios(data.slice(0, 3));
       } catch (error) {
         console.error("Erro ao carregar estúdios com mais vitórias:", error);
       }
@@ -29,7 +26,7 @@ const TopStudios: React.FC = () => {
   const columns = [
     {
       accessorKey: "name",
-      header: "Studio",
+      header: "Name",
     },
     {
       accessorKey: "winCount",
@@ -52,4 +49,4 @@ const TopStudios: React.FC = () => {
   );
 };
 
-export default TopStudios;
+export default TopStudiosComponent;

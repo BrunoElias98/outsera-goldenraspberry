@@ -2,23 +2,37 @@ import { useState, useEffect } from "react";
 
 import { fetchMovies } from "@/core/services/movies";
 
-type Movie = {
-  year: number;
-  title: string;
-  studios: string[];
-  producers: string[];
-  winner: boolean;
-};
+import { Movie } from "@/@types/movies";
 
-export function useMovies(pageSize: number) {
+export function useMovies(
+  pageSize: number,
+  filters: { yearFilter?: string; winnerFilter?: string }
+) {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(0);
+  const [debouncedYear, setDebouncedYear] = useState(filters.yearFilter);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedYear(filters.yearFilter);
+    }, 1000);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [filters]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { movies, totalPages } = await fetchMovies(currentPage, pageSize);
+        const { movies, totalPages } = await fetchMovies(
+          currentPage,
+          pageSize,
+          debouncedYear,
+          filters.winnerFilter
+        );
+
         setMovies(movies);
         setTotalPages(totalPages);
       } catch (error) {
@@ -27,7 +41,7 @@ export function useMovies(pageSize: number) {
     };
 
     fetchData();
-  }, [currentPage, pageSize]);
+  }, [currentPage, pageSize, debouncedYear, filters.winnerFilter]);
 
   return {
     movies,

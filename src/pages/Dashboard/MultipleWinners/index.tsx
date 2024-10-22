@@ -4,10 +4,7 @@ import TableComponent from "@Components/ui/Table";
 
 import { fetchMultipleWinners } from "@Services/movies";
 
-type MultipleWinner = {
-  year: number;
-  winnerCount: number;
-};
+import { MultipleWinner } from "@/@types/movies";
 
 const MultipleWinners: React.FC = () => {
   const [multipleWinners, setMultipleWinners] = useState<MultipleWinner[]>([]);
@@ -16,7 +13,6 @@ const MultipleWinners: React.FC = () => {
     const getMultipleWinners = async () => {
       try {
         const data = await fetchMultipleWinners();
-
         setMultipleWinners(data);
       } catch (error) {
         console.error("Erro ao carregar anos com múltiplos vencedores:", error);

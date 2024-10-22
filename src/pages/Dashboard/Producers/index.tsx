@@ -4,20 +4,10 @@ import TableComponent from "@Components/ui/Table";
 
 import { fetchProducers } from "@Services/movies";
 
-type ProducerInterval = {
-  producer: string;
-  interval: number;
-  previousWin: number;
-  followingWin: number;
-};
-
-type ProducersData = {
-  min: ProducerInterval[];
-  max: ProducerInterval[];
-};
+import { ProducersResponse } from "@/@types/movies";
 
 const Producers: React.FC = () => {
-  const [producersData, setProducersData] = useState<ProducersData | null>(
+  const [producersData, setProducersData] = useState<ProducersResponse | null>(
     null
   );
 
@@ -25,7 +15,6 @@ const Producers: React.FC = () => {
     const getProducersData = async () => {
       try {
         const data = await fetchProducers();
-
         setProducersData(data);
       } catch (error) {
         console.error(
