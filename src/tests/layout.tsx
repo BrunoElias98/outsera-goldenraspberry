@@ -14,21 +14,4 @@ export const setupMockLayout = () => {
       ),
     };
   });
-
-  vi.mock("@/core/hooks/useMovies", () => ({
-    useMovies: vi.fn(),
-  }));
-
-  vi.mock("react-hook-form", () => {
-    const originalModule = vi.importActual("react-hook-form");
-    return {
-      ...originalModule,
-      useForm: () => ({
-        register: vi.fn(),
-        watch: vi.fn(),
-        setValue: vi.fn(),
-        reset: vi.fn(),
-      }),
-    };
-  });
 };

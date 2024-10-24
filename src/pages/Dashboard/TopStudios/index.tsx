@@ -35,7 +35,10 @@ const TopStudiosComponent: React.FC = () => {
   ];
 
   return (
-    <div className="p-4 bg-white rounded shadow-md">
+    <div
+      className="p-4 bg-white rounded shadow-md"
+      data-testid="top-studios-page"
+    >
       <h3 className="text-lg font-semibold mb-4">Top 3 studios with winners</h3>
       <TableComponent
         columns={columns}

@@ -28,7 +28,6 @@ const ListMoviesPage: React.FC = () => {
       yearFilter: "",
       winnerFilter: "default",
     },
-    mode: "onChange",
   });
 
   const yearFilter = watch("yearFilter");
@@ -49,10 +48,6 @@ const ListMoviesPage: React.FC = () => {
     totalPages,
     setCurrentPage,
   } = useMovies(pageSize, filters);
-
-  useEffect(() => {
-    setFocus("yearFilter");
-  }, [yearFilter]);
 
   const columns = [
     {
@@ -85,10 +80,20 @@ const ListMoviesPage: React.FC = () => {
           <span>Winner?</span>
           <Select
             value={winnerFilter}
-            onValueChange={(value) => setValue("winnerFilter", value)}
+            onValueChange={(value) => {
+              console.log("Winner Filter changed to:", value);
+              setValue("winnerFilter", value);
+            }}
           >
             <SelectTrigger className="mt-1 w-full" data-testid="winner-filter">
-              <SelectValue />
+              <SelectValue>
+                {" "}
+                {winnerFilter === "true"
+                  ? "Yes"
+                  : winnerFilter === "false"
+                  ? "No"
+                  : "Yes/No"}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
               {options.map((option) => (
@@ -110,6 +115,10 @@ const ListMoviesPage: React.FC = () => {
       winnerFilter: "default",
     });
   }, [currentPage, reset]);
+
+  useEffect(() => {
+    setFocus("yearFilter");
+  }, [yearFilter]);
 
   useEffect(() => {
     setModuleName("List Movies");

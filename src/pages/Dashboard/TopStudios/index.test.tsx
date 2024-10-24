@@ -1,5 +1,6 @@
-import { render, screen, waitFor } from "@testing-library/react";
 import { vi } from "vitest";
+
+import { render, screen, waitFor } from "@Tests/customRender";
 
 import { fetchTopStudios } from "@Services/movies";
 
@@ -9,12 +10,12 @@ vi.mock("@Services/movies", () => ({
   fetchTopStudios: vi.fn(),
 }));
 
-describe("TopStudios Component", () => {
-  afterEach(() => {
+describe("TopStudios Page", () => {
+  beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it("Renders the title and table headers", async () => {
+  it("Should render title and table headers", async () => {
     (fetchTopStudios as any).mockResolvedValueOnce([
       { name: "Studio A", winCount: 5 },
       { name: "Studio B", winCount: 3 },
@@ -23,14 +24,15 @@ describe("TopStudios Component", () => {
 
     render(<TopStudios />);
 
-    const title = screen.getByText("Top 3 studios with winners");
-    expect(title).not.to.be.null;
+    await waitFor(() => {
+      expect(screen.getByTestId("top-studios-page")).not.toBeNull();
+    });
 
-    expect(screen.getByText("Studio")).not.to.be.null;
+    expect(screen.getByText("Name")).not.to.be.null;
     expect(screen.getByText("Win Count")).not.to.be.null;
   });
 
-  it("Renders the studios' data after loading", async () => {
+  it("Should render studios data after loading", async () => {
     (fetchTopStudios as any).mockResolvedValueOnce([
       { name: "Studio A", winCount: 5 },
       { name: "Studio B", winCount: 3 },

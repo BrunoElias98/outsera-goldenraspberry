@@ -44,7 +44,10 @@ const ListMoviesByYear: React.FC = () => {
   ];
 
   return (
-    <div className="p-4 bg-white rounded shadow-md">
+    <div
+      className="p-4 bg-white rounded shadow-md"
+      data-testid="list-movies-by-year-page"
+    >
       <h3 className="text-lg font-semibold mb-4">List movie winners by year</h3>
       <div className="flex items-center mb-4 space-x-2">
         <Input
@@ -53,11 +56,13 @@ const ListMoviesByYear: React.FC = () => {
           value={year}
           onChange={(e) => setYear(e.target.value)}
           className="w-full"
+          data-testid="input-search"
         />
         <Button
           onClick={handleSearch}
           className="p-2 max-w-[40px] bg-blue-500 text-white rounded"
           disabled={loading}
+          data-testid='button-submit'
         >
           <FaSearch />
         </Button>

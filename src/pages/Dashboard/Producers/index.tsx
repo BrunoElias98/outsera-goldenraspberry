@@ -49,7 +49,10 @@ const Producers: React.FC = () => {
   if (!producersData) return <>Loading...</>;
 
   return (
-    <div className="p-4 bg-white rounded shadow-md">
+    <div
+      className="p-4 bg-white rounded shadow-md"
+      data-testid="producers-page"
+    >
       <h3 className="text-lg font-semibold mb-4">
         Producers with longest and shortest interval between wins
       </h3>

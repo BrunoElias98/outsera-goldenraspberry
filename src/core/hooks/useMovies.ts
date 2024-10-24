@@ -16,24 +16,24 @@ export function useMovies(
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedYear(filters.yearFilter);
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [filters]);
+  }, [filters.yearFilter]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { movies, totalPages } = await fetchMovies(
+        const { movies: fetchedMovies, totalPages } = await fetchMovies(
           currentPage,
           pageSize,
           debouncedYear,
           filters.winnerFilter
         );
 
-        setMovies(movies);
+        setMovies(fetchedMovies);
         setTotalPages(totalPages);
       } catch (error) {
         console.error("Erro ao carregar filmes:", error);
