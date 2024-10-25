@@ -80,20 +80,10 @@ const ListMoviesPage: React.FC = () => {
           <span>Winner?</span>
           <Select
             value={winnerFilter}
-            onValueChange={(value) => {
-              console.log("Winner Filter changed to:", value);
-              setValue("winnerFilter", value);
-            }}
+            onValueChange={(value) => setValue("winnerFilter", value)}
           >
             <SelectTrigger className="mt-1 w-full" data-testid="winner-filter">
-              <SelectValue>
-                {" "}
-                {winnerFilter === "true"
-                  ? "Yes"
-                  : winnerFilter === "false"
-                  ? "No"
-                  : "Yes/No"}
-              </SelectValue>
+              <SelectValue />
             </SelectTrigger>
             <SelectContent>
               {options.map((option) => (
