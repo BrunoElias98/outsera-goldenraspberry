@@ -2,12 +2,12 @@ import { vi } from "vitest";
 
 import { render, screen, waitFor } from "@Tests/customRender";
 
-import { fetchTopStudios } from "@Services/movies";
+import MovieService from "@Services/movies";
 
 import TopStudios from "./";
 
 vi.mock("@Services/movies", () => ({
-  fetchTopStudios: vi.fn(),
+  default: vi.fn().mockImplementation(() => MovieService),
 }));
 
 describe("TopStudios Page", () => {
@@ -16,7 +16,7 @@ describe("TopStudios Page", () => {
   });
 
   it("Should render title and table headers", async () => {
-    (fetchTopStudios as any).mockResolvedValueOnce([
+    MovieService.fetchTopStudios = vi.fn().mockResolvedValueOnce([
       { name: "Studio A", winCount: 5 },
       { name: "Studio B", winCount: 3 },
       { name: "Studio C", winCount: 2 },
@@ -33,7 +33,7 @@ describe("TopStudios Page", () => {
   });
 
   it("Should render studios data after loading", async () => {
-    (fetchTopStudios as any).mockResolvedValueOnce([
+    MovieService.fetchTopStudios = vi.fn().mockResolvedValueOnce([
       { name: "Studio A", winCount: 5 },
       { name: "Studio B", winCount: 3 },
       { name: "Studio C", winCount: 2 },

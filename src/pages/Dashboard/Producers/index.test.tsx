@@ -2,12 +2,12 @@ import { vi } from "vitest";
 
 import { render, screen, waitFor } from "@Tests/customRender";
 
-import { fetchProducers } from "@Services/movies";
+import MovieService from "@Services/movies";
 
 import Producers from "./";
 
 vi.mock("@Services/movies", () => ({
-  fetchProducers: vi.fn(),
+  default: vi.fn().mockImplementation(() => MovieService),
 }));
 
 describe("Producers Page", () => {
@@ -16,7 +16,7 @@ describe("Producers Page", () => {
   });
 
   it("Should render page state initially", async () => {
-    (fetchProducers as any).mockResolvedValueOnce({
+    MovieService.fetchProducers = vi.fn().mockResolvedValueOnce({
       min: [
         {
           producer: "Producer 1",
@@ -45,7 +45,7 @@ describe("Producers Page", () => {
   });
 
   it("Should render producers data after loading", async () => {
-    (fetchProducers as any).mockResolvedValueOnce({
+    MovieService.fetchProducers = vi.fn().mockResolvedValueOnce({
       min: [
         {
           producer: "Producer 1",

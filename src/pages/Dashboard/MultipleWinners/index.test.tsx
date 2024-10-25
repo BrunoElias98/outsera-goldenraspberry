@@ -2,12 +2,12 @@ import { vi } from "vitest";
 
 import { act, render, screen, waitFor } from "@Tests/customRender";
 
-import { fetchMultipleWinners } from "@Services/movies";
+import MovieService from "@Services/movies";
 
 import MultipleWinners from "./";
 
 vi.mock("@Services/movies", () => ({
-  fetchMultipleWinners: vi.fn(),
+  default: vi.fn().mockImplementation(() => MovieService),
 }));
 
 describe("MultipleWinners Page", () => {
@@ -17,7 +17,7 @@ describe("MultipleWinners Page", () => {
 
   it("Should render initial page state", async () => {
     await act(async () => {
-      (fetchMultipleWinners as any).mockResolvedValueOnce([
+      MovieService.fetchMultipleWinners = vi.fn().mockResolvedValueOnce([
         { year: 1990, winnerCount: 2 },
         { year: 1995, winnerCount: 3 },
       ]);
@@ -34,7 +34,7 @@ describe("MultipleWinners Page", () => {
 
   it("Should render data after loading", async () => {
     await act(async () => {
-      (fetchMultipleWinners as any).mockResolvedValueOnce([
+      MovieService.fetchMultipleWinners = vi.fn().mockResolvedValueOnce([
         { year: 1990, winnerCount: 2 },
         { year: 1995, winnerCount: 3 },
       ]);

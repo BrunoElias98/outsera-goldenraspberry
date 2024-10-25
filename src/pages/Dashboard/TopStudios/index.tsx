@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import TableComponent from "@Components/ui/Table";
 
-import { fetchTopStudios } from "@Services/movies";
+import MovieService from "@Services/movies";
 
 import { TopStudios } from "@/@types/movies";
 
@@ -12,7 +12,7 @@ const TopStudiosComponent: React.FC = () => {
   useEffect(() => {
     const getTopStudios = async () => {
       try {
-        const data = await fetchTopStudios();
+        const data = await MovieService.fetchTopStudios();
 
         setTopStudios(data.slice(0, 3));
       } catch (error) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import TableComponent from "@Components/ui/Table";
 
-import { fetchProducers } from "@Services/movies";
+import MovieService from "@Services/movies";
 
 import { ProducersResponse } from "@/@types/movies";
 
@@ -14,7 +14,7 @@ const Producers: React.FC = () => {
   useEffect(() => {
     const getProducersData = async () => {
       try {
-        const data = await fetchProducers();
+        const data = await MovieService.fetchProducers();
         setProducersData(data);
       } catch (error) {
         console.error(

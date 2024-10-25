@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import TableComponent from "@Components/ui/Table";
 
-import { fetchMultipleWinners } from "@Services/movies";
+import MovieService from "@Services/movies";
 
 import { MultipleWinner } from "@/@types/movies";
 
@@ -12,7 +12,7 @@ const MultipleWinners: React.FC = () => {
   useEffect(() => {
     const getMultipleWinners = async () => {
       try {
-        const data = await fetchMultipleWinners();
+        const data = await MovieService.fetchMultipleWinners();
         setMultipleWinners(data);
       } catch (error) {
         console.error("Erro ao carregar anos com múltiplos vencedores:", error);

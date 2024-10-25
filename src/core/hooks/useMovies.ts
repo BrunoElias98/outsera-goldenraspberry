@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { fetchMovies } from "@/core/services/movies";
+import MovieService from "@Services/movies";
 
 import { Movie } from "@/@types/movies";
 
@@ -26,12 +26,13 @@ export function useMovies(
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { movies: fetchedMovies, totalPages } = await fetchMovies(
-          currentPage,
-          pageSize,
-          debouncedYear,
-          filters.winnerFilter
-        );
+        const { movies: fetchedMovies, totalPages } =
+          await MovieService.fetchMovies(
+            currentPage,
+            pageSize,
+            debouncedYear,
+            filters.winnerFilter
+          );
 
         setMovies(fetchedMovies);
         setTotalPages(totalPages);

@@ -5,7 +5,7 @@ import TableComponent from "@Components/ui/Table";
 import { Input } from "@Components/ui/Input";
 import { Button } from "@Components/ui/Button";
 
-import { fetchMoviesByYear } from "@Services/movies";
+import MovieService from "@Services/movies";
 import { Movie } from "@/@types/movies";
 
 const ListMoviesByYear: React.FC = () => {
@@ -18,7 +18,7 @@ const ListMoviesByYear: React.FC = () => {
 
     setLoading(true);
     try {
-      const data = await fetchMoviesByYear(Number(year));
+      const data = await MovieService.fetchMoviesByYear(Number(year));
 
       setMovies(data);
     } catch (error) {
@@ -62,7 +62,7 @@ const ListMoviesByYear: React.FC = () => {
           onClick={handleSearch}
           className="p-2 max-w-[40px] bg-blue-500 text-white rounded"
           disabled={loading}
-          data-testid='button-submit'
+          data-testid="button-submit"
         >
           <FaSearch />
         </Button>

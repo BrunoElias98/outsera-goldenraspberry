@@ -45,7 +45,7 @@ describe("ListMovies Page", () => {
   it("Should filter movies by year", async () => {
     const mockMovies = generateMovies(false, true);
 
-    (useMovies as any).mockImplementation((pageSize, filters) => {
+    (useMovies as any).mockImplementation((pageSize: number, filters: any) => {
       const filteredMovies = mockMovies.filter((movie) =>
         filters.yearFilter ? movie.year.toString() === filters.yearFilter : true
       );

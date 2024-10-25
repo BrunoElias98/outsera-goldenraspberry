@@ -1,10 +1,13 @@
 import { vi } from "vitest";
+
 import { render, screen, fireEvent, waitFor } from "@Tests/customRender";
-import { fetchMoviesByYear } from "@Services/movies";
+
+import MovieService from "@Services/movies";
+
 import ListMoviesByYear from "./";
 
 vi.mock("@Services/movies", () => ({
-  fetchMoviesByYear: vi.fn(),
+  default: vi.fn().mockImplementation(() => MovieService),
 }));
 
 describe("ListMoviesByYear Page", () => {
@@ -40,7 +43,7 @@ describe("ListMoviesByYear Page", () => {
       },
     ];
 
-    (fetchMoviesByYear as any).mockResolvedValueOnce(mockMovies);
+    MovieService.fetchMoviesByYear = vi.fn().mockResolvedValueOnce(mockMovies);
 
     render(<ListMoviesByYear />);
 
